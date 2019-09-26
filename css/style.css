@@ -1,0 +1,193 @@
+html, body {
+  margin: 0px;
+}
+
+body {
+  background: #fafafa url('../img/background.png');
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.main {
+  background-color: white;
+  text-align: center;
+  border: 1px solid rgb(169, 169, 169);
+}
+
+.header {
+  margin-bottom: 30px;
+  padding: 3px;
+  color: white;
+  background-color: rgba(35, 61, 77, 0.81);
+}
+
+.main .left, .main .right, .main .center  {
+  display: inline-table;
+  vertical-align: top;
+  height: 450px;
+  margin-bottom: 10px;
+}
+
+.main .center {
+  height: 350px
+}
+
+.main .center .s {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.main .center img {
+  width: 30px;
+}
+
+.main textarea {
+  height: 300px;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #f5f5f5;
+}
+
+.main h2 {
+  font-size: 16px;
+}
+
+.main h3 {
+  margin-bottom: 3px;
+  color: #606770;
+
+}
+
+.optionInput {
+  margin: 5px;
+}
+
+.optionInput input[type=checkbox]{
+  display: none;
+}
+
+.optionInput input[type=checkbox] + label {
+  display: inline-block;
+  height: 25px;
+  padding: 0 0 5px 30px;
+  margin: 5px 30px 0 0;
+  font-size: 12px;
+  background-image: url("../img/ico-master.png");
+  background-repeat:no-repeat;
+  background-position: 0 -60px;
+}
+
+.optionInput input[type=checkbox]:checked + label {
+    background-position:0 -90px;
+}
+
+
+.info {
+  padding: 0 2% 30px 2%;
+  width: 96%;
+}
+
+.example {
+  width: 40%;
+  margin: 5px;
+  border: 1px solid rgb(169, 169, 169);
+  padding: 5px;
+  display: inline-block;
+}
+
+.footer {
+    display: block;
+    width: 90%;
+    background: #fff;
+    color: white;
+    -webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.4);
+    box-shadow: 1px 2px 3px -1px rgba(0,0,0,0.4);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 30px;
+    padding: 10px 5% 10px 5%;
+    background-color: rgba(35, 61, 77, 0.81);
+}
+
+.footer-about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 1px;
+}
+
+.poc, .about-list {
+  margin: 1px 0;
+}
+.poc {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: white;
+}
+
+.poc-icon {
+  margin-right: 5px;
+}
+
+.footer ol, .footer ul {
+    list-style: none;
+}
+
+.about-list {
+    display: flex;
+    align-items: center;
+}
+
+.footer svg {
+  margin-left: 10px;
+}
+
+@media only screen and (min-width: 300px) {
+  .main {
+    width: 100%;
+  }
+  .main textarea {
+    width: 90%;
+    max-width: 475px;
+    height: 200px;
+  }
+  .main .left, .main .right {
+    width: 100%;
+    max-height: 365px;
+    margin-bottom: 5px;
+  }
+  .main .center {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main {
+    margin: 10px auto;
+    width: 1200px;
+  }
+  .main textarea {
+    width: 475px;
+    height: 275px;
+  }
+  .main .left, .main .right {
+    width: 500px;
+    height: 450px;
+    margin-bottom: 50px;
+  }
+  .main .left {
+    margin: 0px 25px 0px 25px;
+  }
+
+  .main .right {
+    margin-left: 25px;
+  }
+
+  .main .center {
+    display: inline-table;
+    height: 350px
+  }
+
+}
