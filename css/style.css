@@ -9,7 +9,7 @@ body {
 
 .main {
   background-color: white;
-  text-align: center;
+  //text-align: center;
   border: 1px solid rgb(169, 169, 169);
 }
 
@@ -49,17 +49,27 @@ body {
 }
 
 .main h2 {
+  text-align: center;
   font-size: 16px;
 }
 
 .main h3 {
+  text-align: center;
   margin-bottom: 3px;
   color: #606770;
-
 }
 
-.optionInput {
+.infoInput, .optionInput {
+  display: inline-block;
   margin: 5px;
+}
+
+.infoInput {
+  margin: 5px 50px 5px 2px;
+}
+
+.infoInput span {
+  font-weight: bold;
 }
 
 .optionInput input[type=checkbox]{
@@ -81,8 +91,8 @@ body {
     background-position:0 -90px;
 }
 
-
 .info {
+  text-align: center;
   padding: 0 2% 30px 2%;
   width: 96%;
 }
@@ -150,7 +160,7 @@ body {
   }
   .main textarea {
     width: 90%;
-    max-width: 475px;
+    max-width: 500px;
     height: 200px;
   }
   .main .left, .main .right {
@@ -169,16 +179,16 @@ body {
     width: 1200px;
   }
   .main textarea {
-    width: 475px;
+    width: 500px;
     height: 275px;
   }
   .main .left, .main .right {
-    width: 500px;
+    width: 510px;
     height: 450px;
     margin-bottom: 50px;
   }
   .main .left {
-    margin: 0px 25px 0px 25px;
+    margin: 0px 25px 0px 40px;
   }
 
   .main .right {

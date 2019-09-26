@@ -14,13 +14,26 @@
     </div>
     <div class="left">
       <h3>Text</h3>
-      <textarea encode>minha frase de 32 caracteres ex.</textarea>
+      <textarea encode>"Here we introduce Nano, a cryptocurrency with a novel block-lattice architecture where each account has its own blockchain, delivering near instantaneous transaction speed and unlimited scalability.
+
+        Each user has their own blockchain, allowing them to update it asynchronously to the rest of the network, resulting in fast transactions with minimal overhead."
+
+          *******************
+          890 , . ! ? ; @ ( ]
+          ç ã ž  ½ ¶ § ® ß æ Ё ϻ Є ϖ ϕ
+          ህ ሑ ⶼ ꬬ 日 行 高 ⏃ ⏈ ⏎ ⏳
+          𒇤 𒈂 𒈘 𒈙</textarea>
+      <div class="infoInput">
+        <strong>Info:</strong><br>
+        <span id="chars">0</span> characters<br>
+        <span id="bytes">0</span> bytes
+      </div>
       <div class="optionInput">
         <strong>Newline at the end of each wallet?</strong>
         <br><input type="checkbox" id="newlineYes" name="newlineYes" />
         <label for="newlineYes">Yes, always</label>
         <input type="checkbox" id="newlineNo" name="newlineNo" checked="checked" />
-        <label for="newlineNo">No, only with newline characters</label>
+        <label for="newlineNo">No, only with newline chars</label>
       </div>
     </div>
 
@@ -31,6 +44,10 @@
     <div class="right">
       <h3>Nano Wallets (1 per line)</h3>
       <textarea decode></textarea>
+      <div class="infoInput">
+        <strong>Info:</strong><br>
+        <span id="wallets">0</span> Wallets
+      </div>
       <div class="optionInput">
         <strong>Choose wallet prefix</strong>
         <br><input type="checkbox" id="nano_" name="nano" checked="checked" />
@@ -53,7 +70,7 @@
       <div class="footer-about">
         <div class="poc">
               <img class="poc-icon" src="img/poc.png" style="height: 2em; width: 2em; display: block; fill: white;">
-              Proof of Concept | Nano Wallet To Text
+              Proof of Concept <br> Nano Wallet To Text
         </div>
           <ul class="about-list">
               <li>
@@ -106,6 +123,8 @@
     encode = {"textarea": window.document.querySelector("textarea[encode]"), "output": window.document.querySelector("textarea[decode]")}
     encode.textarea.addEventListener("keyup", function(e){
       var input = e.target.value
+      document.querySelector(".left .infoInput span#chars").innerText = input.length
+      document.querySelector(".left .infoInput span#bytes").innerText = new Blob([input]).size
       var uint8array = new TextEncoder("utf-8").encode(input);
       encode.output.value = ""
       for (bytecount=0; bytecount<uint8array.length; bytecount += 32){
@@ -117,6 +136,7 @@
           encode.output.value += "\nError\n";
         }
       }
+      document.querySelector(".right .infoInput span#wallets").innerText = encode.output.value.split('\n').length - 1
     })
     encode.textarea.dispatchEvent(new KeyboardEvent('keyup'));
 
@@ -134,6 +154,7 @@
           if (res) {
             var output = concatTypedArrays(output, res)
             if (newline) output = concatTypedArrays(output, new TextEncoder("utf-8").encode('\n'))
+            document.querySelector(".right .infoInput span#wallets").innerText = i + 1
           } else {
             decode.output.value += "\nError\n"
           }
@@ -141,6 +162,9 @@
       }
       output = removeAllElements(output, 0)
       decode.output.value += new TextDecoder("utf-8").decode(output);
+
+      document.querySelector(".left .infoInput span#chars").innerText = decode.output.value.length
+      document.querySelector(".left .infoInput span#bytes").innerText = new Blob([decode.output.value]).size
     })
       decode.textarea.dispatchEvent(new KeyboardEvent('keyup'));
 
